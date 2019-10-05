@@ -7,6 +7,24 @@
 //
 
 import Foundation
+import MetalKit
 
-print("Hello, World!")
+var device :  MTLDevice!
+guard let device = MTLCreateSystemDefaultDevice() else {
+    fatalError("GPU Unavailable")
+}
+var commandQueue = device.makeCommandQueue()!
+var library = device.makeDefaultLibrary()
+let commandBuffer = commandQueue.makeCommandBuffer()
+let computeEncoder = commandBuffer?.makeComputeCommandEncoder()
+var computePipelineState: MTLComputePipelineState!
+var computeFunction: MTLFunction!
+
+guard let computeFunction = library?.makeFunction(name: "kernel_main") else{
+    fatalError("Shader Unavailable")
+}
+
+try! device.makeComputePipelineState(function: computeFunction)
+
+
 
