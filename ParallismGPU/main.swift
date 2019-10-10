@@ -9,16 +9,9 @@
 import Foundation
 import MetalKit
 
-func alignBufferSize(bufferSize: Int, alignment: Int) -> Int {
-    let alignmentError = bufferSize % alignment;
-    if (alignmentError == 0) {
-        return bufferSize
-    }
-    return bufferSize + (alignment - alignmentError)
-}
 
-let row : uint = 30000
-var column : uint = 4000
+let row : uint = 3
+var column : uint = 4
 var array  = Array(repeating: Array<Float>(repeating: 0, count: Int(column)), count: Int(row))
 
 let start = DispatchTime.now() // <<<<<<<<<< Start time
@@ -31,9 +24,8 @@ let computeEncoder = commandBuffer?.makeComputeCommandEncoder()
 
 var computeFunction = library?.makeFunction(name: "kernel_main")!
 var computePipelineState = try! device.makeComputePipelineState(function: computeFunction!)
-//var matrixBuffer = device.makeBuffer(bytes: &array, length: Int(row*column) * MemoryLayout<Float>.stride, options: [])
-let bufferSize = alignBufferSize(bufferSize: Int(row*column) * MemoryLayout<Float>.stride, alignment: Int(row*column))
-var matrixBuffer = device.makeBuffer(bytesNoCopy: &array, length: bufferSize, options: [], deallocator: nil)
+var matrixBuffer = device.makeBuffer(bytes: &array, length: Int(row*column) * MemoryLayout<Float>.stride, options: [])
+
 computeEncoder?.pushDebugGroup("settingup")
 computeEncoder?.setComputePipelineState(computePipelineState)
 computeEncoder?.setBuffer(matrixBuffer, offset: 0, index: 0)
