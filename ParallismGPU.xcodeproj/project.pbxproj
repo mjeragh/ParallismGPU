@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B284E8EA23488F280099267E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B284E8E923488F280099267E /* main.swift */; };
-		B2A3F9B32348ED5700AD96FE /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = B2A3F9B22348ED5700AD96FE /* Shaders.metal */; };
+		B29F70D8234F2F9E00B3417E /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = B29F70D7234F2F9E00B3417E /* Shaders.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,7 +26,7 @@
 /* Begin PBXFileReference section */
 		B284E8E623488F280099267E /* ParallismGPU */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ParallismGPU; sourceTree = BUILT_PRODUCTS_DIR; };
 		B284E8E923488F280099267E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		B2A3F9B22348ED5700AD96FE /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		B29F70D7234F2F9E00B3417E /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,8 +59,8 @@
 		B284E8E823488F280099267E /* ParallismGPU */ = {
 			isa = PBXGroup;
 			children = (
+				B29F70D7234F2F9E00B3417E /* Shaders.metal */,
 				B284E8E923488F280099267E /* main.swift */,
-				B2A3F9B22348ED5700AD96FE /* Shaders.metal */,
 			);
 			path = ParallismGPU;
 			sourceTree = "<group>";
@@ -123,7 +123,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2A3F9B32348ED5700AD96FE /* Shaders.metal in Sources */,
+				B29F70D8234F2F9E00B3417E /* Shaders.metal in Sources */,
 				B284E8EA23488F280099267E /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
