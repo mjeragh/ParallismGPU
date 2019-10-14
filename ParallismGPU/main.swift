@@ -10,8 +10,8 @@ import Foundation
 import MetalKit
 
 
-let row : uint = 3
-var column : uint = 4
+let row : uint = 30000
+var column : uint = 4000
 var array  = Array(repeating: Array<Float>(repeating: 0, count: Int(column)), count: Int(row))
 
 let start = DispatchTime.now() // <<<<<<<<<< Start time
@@ -49,8 +49,3 @@ print("Time to execute: \(timeInterval) seconds")
 let contents = matrixBuffer?.contents()
 let pointer = contents?.bindMemory(to: Float.self, capacity: Int(row*column))
 
-let result = (0..<Int(row*column)).map{
-    pointer?.advanced(by: $0).pointee
-}
-
-print("test")
